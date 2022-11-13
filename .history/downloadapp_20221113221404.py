@@ -66,7 +66,7 @@ class Application:
         self.newWindow = Toplevel(self.root)
         self.root.withdraw()
 
-        self.app = SecondApp(self.newWindow, self.youtubeEntryVar.get(),self.FolderName, self.ChoicesVar.get())
+        self.app = SecondApp(self.newWindow, self.youtubeEntryVar.get(),self.FolderName.get(), self.ChoicesVar.get())
 
     
     def openDirectory(self):
@@ -99,9 +99,6 @@ class SecondApp:
 
         self.loadingLabel = Label(self.downloadWindow, text="Downloading in Progress...", font=("Small Fonts", 40))
         self.loadingLabel.grid(pady=(100,0))
-
-        self.loadingPercent = Label(self.downloadWindow, text="0", fg="green", font=("Agency Fb", 40))
-        self.loadingPercent.grid(pady=(50,0))
 
 
 if __name__=="__main__":

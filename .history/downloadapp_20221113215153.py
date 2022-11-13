@@ -50,23 +50,23 @@ class Application:
             self.youtubeChoices.grid()
 
 
-        self.downloadButton = Button(self.root,text = "Download", width=10, font=("Bell MT", 15),command=self.checkyoutubelink)
+        self.downloadButton = Button(self.root,text = "Download", width=10, font=("Bell MT", 15),command=checkyoutubelink)
         self.downloadButton.grid(pady=(30,5))
 
     def checkyoutubelink(self):
         self.matchyoutubelink = re.match("^https://www.youtube.com/.", self.youtubeEntryVar.get())
         if (not self.matchyoutubelink):
             self.youtubeEntryError.config(text="Invalid Youtube Link", fg="red")
-        elif (not self.openDirectory):
+        elif (not self.openDirectory()):
             self.fileLocationLabel.config(text="Please Choice a Directory")
-        elif(self.matchyoutubelink and self.openDirectory):
+        elif(self.matchyoutubelink and self.fileLocationLabel):
             self.downloadWindow()
     def downloadWindow(self):
 
         self.newWindow = Toplevel(self.root)
-        self.root.withdraw()
 
-        self.app = SecondApp(self.newWindow, self.youtubeEntryVar.get(),self.FolderName, self.ChoicesVar.get())
+
+
 
     
     def openDirectory(self):
@@ -77,31 +77,6 @@ class Application:
             return True
         else:
             self.fileLocationLabel.config(text="Please Choose a Directory", fg="red")
-
-class SecondApp:
-    def __init__(self, downloadWindow, youtubelink, FolderName, Choices):
-
-        self.downloadWindow = downloadWindow
-        self.youtubelink = youtubelink
-        self.FolderName = FolderName
-        self.Choices = Choices
-
-        self.yt = YouTube(self.youtubelink)
-
-        if (Choices == "1"):
-
-            self.video_type = self.yt.streams.filter(only_audio=True).first()
-            self.MaxFileSize = self.video_type.filesize
-
-        if (Choices =="2"):
-            self.video_type = self.yt.streams.first()
-            self.MaxFileSize = self.video_type.filesize
-
-        self.loadingLabel = Label(self.downloadWindow, text="Downloading in Progress...", font=("Small Fonts", 40))
-        self.loadingLabel.grid(pady=(100,0))
-
-        self.loadingPercent = Label(self.downloadWindow, text="0", fg="green", font=("Agency Fb", 40))
-        self.loadingPercent.grid(pady=(50,0))
 
 
 if __name__=="__main__":

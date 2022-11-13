@@ -66,7 +66,7 @@ class Application:
         self.newWindow = Toplevel(self.root)
         self.root.withdraw()
 
-        self.app = SecondApp(self.newWindow, self.youtubeEntryVar.get(),self.FolderName, self.ChoicesVar.get())
+        self.app = SecondApp(self.newWindow., self.youtubeEntryVar.get(),self.FolderName.get(), self.ChoicesVar.get())
 
     
     def openDirectory(self):
