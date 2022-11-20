@@ -83,7 +83,7 @@ class Application:
             self.fileLocationLabel.config(text="Please Choose a Directory", fg="red")
 
 class SecondApp:
-    def __init__(self, downloadWindow, youtubelink, FolderName, Choices):
+    def __init__(self,root, downloadWindow, youtubelink, FolderName, Choices):
 
         self.downloadWindow = downloadWindow
         self.youtubelink = youtubelink

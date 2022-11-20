@@ -100,10 +100,9 @@ class SecondApp:
         if (Choices =="2"):
             self.video_type = self.yt.streams.first()
             self.MaxFileSize = self.video_type.filesize
-
-        # link_label = Label(self.root, text="Please Paste Any YouTube Video Link Below", font=('SnowPersons',30))
-        # link_label.grid(pady=(0,20))
-        # https://www.youtube.com/
+            
+            link_label = Label(self.root, text="Please Paste Any YouTube Video Link Below", font=('SnowPersons',30))
+        link_label.grid(pady=(0,20))
 
         self.loadingLabel = Label(self.downloadWindow, text="Downloading in Progress...", font=('Type Xero', 40))
         self.loadingLabel.grid(pady=(100,0))

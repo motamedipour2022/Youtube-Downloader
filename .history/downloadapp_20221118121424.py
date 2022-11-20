@@ -67,8 +67,7 @@ class Application:
         self.root.withdraw()
         self.newWindow.state("zoomed")
         self.newWindow.grid_rowconfigure(0, weight=0)
-        self.newWindow.grid_columnconfigure(0, weight=1)
-        
+        self.newWindow.grid_columnconfigure(0, weight=)
 
         self.app = SecondApp(self.newWindow, self.youtubeEntryVar.get(),self.FolderName, self.ChoicesVar.get())
 
@@ -101,20 +100,11 @@ class SecondApp:
             self.video_type = self.yt.streams.first()
             self.MaxFileSize = self.video_type.filesize
 
-        # link_label = Label(self.root, text="Please Paste Any YouTube Video Link Below", font=('SnowPersons',30))
-        # link_label.grid(pady=(0,20))
-        # https://www.youtube.com/
-
-        self.loadingLabel = Label(self.downloadWindow, text="Downloading in Progress...", font=('Type Xero', 40))
+        self.loadingLabel = Label(self.downloadWindow, text="Downloading in Progress...", font=("Small Fonts", 40))
         self.loadingLabel.grid(pady=(100,0))
 
-        self.loadingPercent  = Label(self.downloadWindow, text="0", fg="green", font=('Type Xero', 40))
+        self.loadingPercent = Label(self.downloadWindow, text="0", fg="green", font=("Agency Fb", 40))
         self.loadingPercent.grid(pady=(50,0))
-
-        self.progressbar = ttk.Progressbar(self.downloadWindow,length=500, orient='horizontal', mode='indeterminate')
-        self.progressbar.grid(pady=(50,0))
-        self.progressbar.start()
-
 
 
 if __name__=="__main__":

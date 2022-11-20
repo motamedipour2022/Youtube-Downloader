@@ -83,7 +83,7 @@ class Application:
             self.fileLocationLabel.config(text="Please Choose a Directory", fg="red")
 
 class SecondApp:
-    def __init__(self, downloadWindow, youtubelink, FolderName, Choices):
+    def __init__(self,root, downloadWindow, youtubelink, FolderName, Choices):
 
         self.downloadWindow = downloadWindow
         self.youtubelink = youtubelink
@@ -105,8 +105,8 @@ class SecondApp:
         # link_label.grid(pady=(0,20))
         # https://www.youtube.com/
 
-        self.loadingLabel = Label(self.downloadWindow, text="Downloading in Progress...", font=('Type Xero', 40))
-        self.loadingLabel.grid(pady=(100,0))
+        selfloadingLabel = Label(self.downloadWindow, text="Downloading in Progress...", font=('Type Xero', 40))
+        loadingLabel.grid(pady=(100,0))
 
         self.loadingPercent  = Label(self.downloadWindow, text="0", fg="green", font=('Type Xero', 40))
         self.loadingPercent.grid(pady=(50,0))
